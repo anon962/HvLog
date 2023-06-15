@@ -1,0 +1,27 @@
+version: 1
+
+formatters:
+  simple:
+    format: '[%(levelname)-10s | %(filename)-15s | %(asctime)s] %(message)s'
+
+handlers:
+  battle:
+    class: logging.FileHandler
+    level: DEBUG
+    formatter: simple
+    filename: "../logs/battle.log"
+  error:
+    class: logging.FileHandler
+    level: DEBUG
+    formatter: simple
+    filename: "../logs/errors.log"
+
+loggers:
+  battle:
+    level: DEBUG
+    handlers: [battle]
+    propagate: false
+  error:
+    level: DEBUG
+    handlers: [error]
+    propagate: false
